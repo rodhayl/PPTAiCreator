@@ -1,0 +1,54 @@
+# Pinned dependencies for Windows 10/11, Python 3.11+
+# Core presentation and data libraries
+python-pptx>=0.6.23
+pydantic>=2.7
+python-dotenv>=1.0
+python-dateutil>=2.8
+
+# Web frameworks
+streamlit>=1.38
+fastapi>=0.115
+uvicorn[standard]>=0.30
+
+# LangGraph and agents
+langchain>=0.1.20
+langgraph>=0.1.0
+
+# Reliability and retries
+tenacity>=8.4
+
+# Local search and indexing
+whoosh>=2.7.4
+chromadb>=0.5.5
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.1
+numpy>=1.26
+
+# Database
+SQLAlchemy>=2.0
+psycopg[binary]>=3.2
+redis>=5.0
+
+# Async file I/O
+aiofiles>=23.1
+
+# HTTP client for model calls
+requests>=2.31
+
+# Testing
+pytest>=8.2
+pytest-asyncio>=0.23
+coverage[toml]>=7.6
+
+# Linting and formatting
+black>=24.8
+ruff>=0.6
+
+# Type checking support
+typing-extensions>=4.12
+
+# Optional: Playwright for GUI E2E tests (may fail on some Windows systems)
+# playwright>=1.37
+
+# Rendering and image pipeline
+Pillow>=10.4

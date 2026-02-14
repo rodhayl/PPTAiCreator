@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pptx-agent-langgraph"
+version = "0.1.0"
+description = "Offline-first multi-agent system to generate PowerPoint presentations with LangGraph"
+license = "MIT"
+authors = [
+    { name = "PPTAgent Contributors" }
+]
+dependencies = [
+    "python-pptx>=0.6.21",
+    "pydantic>=2.5",
+    "streamlit>=1.27",
+    "fastapi>=0.110",
+    "uvicorn>=0.23",
+    "tenacity>=8.2",
+    "langchain>=0.1.0",
+    "whoosh>=2.7",
+    "chromadb>=0.5.5",
+    "faiss-cpu>=1.8.0",
+    "sentence-transformers>=3.0.1",
+    "numpy>=1.26",
+    "ruff>=0.1.13",
+    "pytest>=7.4",
+    "pytest-asyncio>=0.21",
+    "playwright>=1.37",
+    "python-dotenv>=1.0",
+    "SQLAlchemy>=2.0",
+    "psycopg[binary]>=3.2",
+    "redis>=5.0",
+    "aiofiles>=23.1",
+    "python-dateutil>=2.8",
+    "Pillow>=10.4"
+]
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers"
+markers = [
+    "e2e: end-to-end tests that may require external services",
+    "ollama: tests that require Ollama running locally",
+    "openrouter: tests that require OpenRouter API key",
+    "real_ai: tests that require real external model providers",
+    "slow: slow-running tests",
+]
+filterwarnings = [
+    "ignore:builtin type SwigPyPacked has no __module__ attribute:DeprecationWarning",
+    "ignore:builtin type SwigPyObject has no __module__ attribute:DeprecationWarning",
+    "ignore:builtin type swigvarlink has no __module__ attribute:DeprecationWarning",
+]
