@@ -1,17 +1,21 @@
-# PPTAgent
+# PPTAgent: Staged PowerPoint Generation
 
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20PowerShell-informational)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Build](https://img.shields.io/badge/build-passing-brightgreen)
-![Tests](https://img.shields.io/badge/tests-unit%20%2B%20integration-passing-brightgreen)
 
-Offline-first, multi-agent PowerPoint generation platform with:
-- deterministic local pipeline execution,
-- optional real-model generation,
-- FastAPI orchestration APIs,
-- Streamlit GUI,
-- and production-focused validation/testing utilities.
+**Status:** v0.1.0 source project with unit, integration and optional real-model tests. Local validation commands are documented below; current results are not published through GitHub Actions.
+
+PPTAgent (in the `PPTAiCreator` repository) turns a presentation brief into a PowerPoint deck through outline, research, content, design and quality-review stages. It provides a Streamlit interface and FastAPI endpoints, with persisted run state and optional human approval between stages. Local/offline execution and configurable language-model integrations make it a practical project in workflow orchestration, document generation and applied AI.
+
+## What this project demonstrates
+
+- Explicit pipeline stages with pause/resume approval and an event timeline.
+- SQLite-backed checkpoints, a GUI and API access to the same run lifecycle.
+- PowerPoint generation with `python-pptx`, templates and inspectable artifacts.
+- Tests that separate orchestration logic from optional real-model behavior.
+
+Local fallback execution is different from real-model generation. Remote providers require network access and may charge for requests. Quality-review and fact-check stages support inspection; review generated content, sources and slide layout before use.
 
 ## Quickstart
 
@@ -63,15 +67,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1
 
 This creates `.venv`, installs dependencies, and installs the package in editable mode.
 
-## Quality snapshot
+## Validation scope
 
-Current repository validation baseline:
-- lint: pass (`ruff check .`)
-- format: pass (`black --check .`)
-- unit tests: pass
-- integration tests: pass
-- package build (`sdist` + `wheel`): pass
-- dependency audit: no known vulnerabilities (`pip-audit`)
+The repository includes unit, integration, API and browser test suites. Some tests use simulated pipeline phases; real-model tests require a configured provider. The commands below are reproducible entry points, not a claim that every check passes in every environment.
+
+When sharing a result, record the commit, command, environment, provider and scope. A test file named `enterprise_e2e` describes a scenario, not an enterprise certification.
 
 ## Run locally
 
